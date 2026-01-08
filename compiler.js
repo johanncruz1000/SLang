@@ -19,6 +19,6 @@ if(valor.includes(`"`)) {console.log(nome+" é string com valor "+ valor);
 }
 detect(code)
 
-exec(`cat > ${args[0].replace(".tl",".cpp")} << 'EOF'\n${code}\nEOF`)
-exec(`clang++ ${args[0].replace(".tl",".cpp")} -O3 -o ${args[1]}`)
+exec(`cat > ${args[0].replace(".sl",".cpp")} << 'EOF'\n${code}\nEOF`)
+exec(`clang++ ${args[0].replace(".sl",".cpp")} -O3 -o ${args[1]}`)
 //*/
