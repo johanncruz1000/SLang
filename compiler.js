@@ -44,7 +44,7 @@ code=code.replace(`var ${nome}`,`string ${nome}`)
 detect(code)
 
 exec(`cat > ${args[2].replace(".sl",".cpp")} << 'EOF'\n${code}\nEOF`)
-execAsync(`clang++ ${args[2].replace(".sl",".cpp")} -O3 -o ${args[3]}`).then(()=>{
+execAsync(`clang++ -ffunction-sections -fdata-sections ${args[2].replace(".sl",".cpp")} -O3 -o ${args[3]} -Wl,--gc-sections`).then(()=>{
 if(args[4]=="-emit-cpp"){
 }else{
 exec(`rm ${args[2].replace(".sl",".cpp")}`)
