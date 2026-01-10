@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLang – Compiled Programming Language</title>
+    <meta name="description" content="SLang is a compiled programming language combining clean syntax, high predictability, and native C++ performance.">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0d0d0d;
+            color: #f5f5f5;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+        h1, h2 {
+            color: #00ffcc;
+        }
+        code, pre {
+            background-color: #1a1a1a;
+            padding: 0.5rem;
+            border-radius: 4px;
+            display: block;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        a {
+            color: #00ffcc;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #333;
+            margin: 2rem 0;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<h1>SLang – Compiled Programming Language</h1>
+
+<div class="section">
+<p>SLang is a <strong>compiled programming language</strong> designed to combine 
+<strong>clean syntax</strong>, <strong>high predictability</strong>, and <strong>native C++ performance</strong> 
+— without <strong>boilerplate</strong>.</p>
+
+<ul>
+    <li>No <code>int main()</code></li>
+    <li>Optional semicolons</li>
+    <li>No wrappers</li>
+</ul>
+</div>
+
+<hr>
+
+<div class="section">
+<h2>Why SLang?</h2>
+<p>Most languages force you to choose:</p>
+<ul>
+    <li>simplicity <strong>or</strong> performance</li>
+    <li>scripting <strong>or</strong> system-level power</li>
+    <li>safety <strong>or</strong> control</li>
+</ul>
+<p>SLang refuses that trade-off.</p>
+</div>
+
+<hr>
+
+<div class="section">
+<h2>Basic Features</h2>
+<ul>
+    <li>Compiled language</li>
+    <li>Native C++ code injection (anytime, anywhere)</li>
+    <li>Predictable behavior (explicit types, explicit blocks)</li>
+    <li>No <code>int main()</code> required</li>
+    <li>Optional semicolons</li>
+    <li>Import system</li>
+    <li>Script-like syntax with system-level power</li>
+</ul>
+</div>
+
+<hr>
+
+<div class="section">
+<h2>Philosophy</h2>
+<p>SLang <strong>trusts the programmer</strong>.</p>
+<p>It does not try to protect you from yourself. It gives you full control — and expects you to know what you're doing.</p>
+<p>If you want safety rails, this language is not for you.</p>
+</div>
+
+<hr>
+
+<div class="section">
+<h2>Hello World</h2>
+<pre><code>print("hello world!")</code></pre>
+</div>
+
+<hr>
+
+<div class="section">
+<h2>Functions & Loops</h2>
+<pre><code>func int fib(int n){
+    if(n <= 1){
+        return n
+    }else{
+        return fib(n-1) + fib(n-2)
+    }
+}
+
+print(String(fib(10)))
+
+func void count(){
+    for(var i=0; i<10;i++){
+        print("numero atual:" + String(i))
+        print("\n")
+    }
+}
+count()
+</code></pre>
+</div>
+
+<hr>
+
+<div class="section">
+<p>Everything above is considered basic in SLang.</p>
+</div>
+
+</body>
+</html>
