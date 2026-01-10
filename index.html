@@ -1,110 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SLang – Compiled Programming Language</title>
-    <meta name="description" content="SLang is a compiled programming language combining clean syntax, high predictability, and native C++ performance.">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLang – Compiled Programming Language</title>
+<meta name="description" content="SLang is a compiled programming language with clean syntax, C++ integration, and script-like syntax. Get native C++ performance with predictable behavior.">
+
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body { font-family: 'Inter', sans-serif; }
+.code-font { font-family: 'Fira Code', monospace; }
+.nav-blur { backdrop-filter: blur(10px); background-color: rgba(0,0,0,0.85); }
+.code-block { background: linear-gradient(135deg,#0a0a0a,#111); border-left: 4px solid #00ffff; padding: 1rem; border-radius: 0.5rem; overflow-x:auto;}
+.hero-gradient { background: radial-gradient(circle at 50% 0%, rgba(0,200,255,0.1), transparent 50%);}
+</style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-mono leading-relaxed">
+<body class="bg-black text-white">
 
-<!-- Header -->
-<header class="bg-gray-800 shadow-md py-6">
-    <div class="container mx-auto px-6 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold text-green-400">SLang</h1>
-        <p class="mt-2 text-lg md:text-xl text-gray-300">Compiled Programming Language with Native C++ Power</p>
+<!-- Navbar -->
+<nav class="fixed w-full z-50 nav-blur border-b border-cyan-900/30">
+  <div class="container mx-auto flex items-center justify-between h-16 px-4 md:px-8">
+    <div class="flex items-center space-x-2">
+      <span class="text-2xl font-bold text-cyan-400">SLang</span>
+      <span class="text-xs font-mono bg-cyan-900/30 text-cyan-300 px-2 py-0.5 rounded">v1.0</span>
     </div>
-</header>
+    <div class="hidden md:flex space-x-6">
+      <a href="#home" class="text-gray-300 hover:text-cyan-400 font-medium">Home</a>
+      <a href="#features" class="text-gray-300 hover:text-cyan-400 font-medium">Features</a>
+      <a href="#philosophy" class="text-gray-300 hover:text-cyan-400 font-medium">Philosophy</a>
+      <a href="#examples" class="text-gray-300 hover:text-cyan-400 font-medium">Examples</a>
+      <a href="#download" class="text-gray-300 hover:text-cyan-400 font-medium">Download</a>
+    </div>
+    <button id="mobile-menu-button" class="md:hidden text-gray-300">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 flex flex-col space-y-3">
+    <a href="#home" class="text-gray-300 hover:text-cyan-400">Home</a>
+    <a href="#features" class="text-gray-300 hover:text-cyan-400">Features</a>
+    <a href="#philosophy" class="text-gray-300 hover:text-cyan-400">Philosophy</a>
+    <a href="#examples" class="text-gray-300 hover:text-cyan-400">Examples</a>
+    <a href="#download" class="text-gray-300 hover:text-cyan-400">Download</a>
+  </div>
+</nav>
 
-<!-- Hero / Introduction -->
-<section class="container mx-auto px-6 py-12 text-center">
-    <p class="text-lg md:text-xl max-w-3xl mx-auto">
-        SLang is a <strong>compiled programming language</strong> designed to combine 
-        <strong>clean syntax</strong>, <strong>high predictability</strong>, and <strong>native C++ performance</strong> — without <strong>boilerplate</strong>.
-    </p>
-    <ul class="mt-6 flex flex-col md:flex-row justify-center gap-8 text-gray-300">
-        <li>No <code>int main()</code></li>
-        <li>Optional semicolons</li>
-        <li>No wrappers</li>
-    </ul>
+<!-- Hero Section -->
+<section id="home" class="pt-24 pb-16 px-4 md:px-8 hero-gradient text-center">
+  <h1 class="text-5xl md:text-6xl font-bold mb-4">
+    <span class="text-white">SLang – </span>
+    <span class="text-cyan-400">Compiled Programming Language</span>
+  </h1>
+  <p class="text-gray-300 text-xl md:text-2xl mb-8">Clean syntax. High predictability. Native C++ performance.</p>
+  <div class="flex flex-col sm:flex-row justify-center gap-4">
+    <a href="#examples" class="px-8 py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition-colors">Get Started</a>
+    <a href="#download" class="px-8 py-3 border border-cyan-600 text-cyan-400 hover:bg-cyan-900/30 font-semibold rounded-lg transition-colors">Download SLang</a>
+  </div>
 </section>
 
-<!-- Why SLang -->
-<section class="bg-gray-800 py-12">
-    <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl font-bold text-green-400">Why SLang?</h2>
-        <p class="mt-4 max-w-2xl mx-auto text-gray-300">Most languages force you to choose:</p>
-        <ul class="mt-4 text-gray-300 list-disc list-inside space-y-2 max-w-md mx-auto">
-            <li>simplicity <strong>or</strong> performance</li>
-            <li>scripting <strong>or</strong> system-level power</li>
-            <li>safety <strong>or</strong> control</li>
-        </ul>
-        <p class="mt-4 text-gray-300 font-semibold">SLang refuses that trade-off.</p>
+<!-- Features Section -->
+<section id="features" class="py-20 px-4 md:px-8">
+  <div class="container mx-auto max-w-6xl text-center mb-16">
+    <h2 class="text-4xl font-bold mb-4"><span class="text-white">Basic</span> <span class="text-cyan-400">Features</span></h2>
+    <p class="text-gray-400 max-w-2xl mx-auto">SLang combines the power of compiled languages with clean scripting syntax.</p>
+  </div>
+  <div class="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-cyan-800 transition-colors">
+      <h3 class="text-xl font-bold mb-2">Compiled Language</h3>
+      <p class="text-gray-400">Direct compilation to machine code for maximum performance.</p>
     </div>
+    <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-cyan-800 transition-colors">
+      <h3 class="text-xl font-bold mb-2">C++ Injection</h3>
+      <p class="text-gray-400">Seamlessly integrate native C++ code for critical sections.</p>
+    </div>
+    <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-cyan-800 transition-colors">
+      <h3 class="text-xl font-bold mb-2">Predictable</h3>
+      <p class="text-gray-400">Explicit types and blocks. No hidden behavior.</p>
+    </div>
+    <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-cyan-800 transition-colors">
+      <h3 class="text-xl font-bold mb-2">Script-like</h3>
+      <p class="text-gray-400">Clean syntax with system-level power. No boilerplate.</p>
+    </div>
+  </div>
 </section>
 
-<!-- Basic Features -->
-<section class="container mx-auto px-6 py-12">
-    <h2 class="text-3xl font-bold text-green-400 text-center">Basic Features</h2>
-    <ul class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-300 max-w-4xl mx-auto">
-        <li class="border border-gray-700 rounded p-4 hover:bg-gray-700 transition">Compiled language</li>
-        <li class="border border-gray-700 rounded p-4 hover:bg-gray-700 transition">Native C++ code injection</li>
-        <li class="border border-gray-700 rounded p-4 hover:bg-gray-700 transition">Predictable behavior (explicit types & blocks)</li>
-        <li class="border border-gray-700 rounded p-4 hover:bg-gray-700 transition">No <code>int main()</code> required</li>
-        <li class="border border-gray-700 rounded p-4 hover:bg-gray-700 transition">Optional semicolons</li>
-        <li class="border border-gray-700 rounded p-4 hover:bg-gray-700 transition">Import system</li>
-        <li class="border border-gray-700 rounded p-4 hover:bg-gray-700 transition">Script-like syntax with system-level power</li>
-    </ul>
+<!-- Philosophy Section -->
+<section id="philosophy" class="py-20 px-4 md:px-8 bg-gray-900/30 text-center">
+  <h2 class="text-4xl font-bold mb-8"><span class="text-white">Philosophy</span></h2>
+  <p class="text-gray-300 max-w-3xl mx-auto mb-4">SLang trusts the programmer. It gives full control — no hand-holding.</p>
+  <p class="text-cyan-300 font-semibold max-w-3xl mx-auto">With great power comes great responsibility.</p>
 </section>
 
-<!-- Philosophy -->
-<section class="bg-gray-800 py-12">
-    <div class="container mx-auto px-6 max-w-3xl text-center">
-        <h2 class="text-3xl font-bold text-green-400">Philosophy</h2>
-        <p class="mt-4 text-gray-300">SLang <strong>trusts the programmer</strong>.</p>
-        <p class="mt-2 text-gray-300">It does not try to protect you from yourself. It gives you full control — and expects you to know what you're doing.</p>
-        <p class="mt-2 text-gray-300 font-semibold">If you want safety rails, this language is not for you.</p>
+<!-- Examples Section -->
+<section id="examples" class="py-20 px-4 md:px-8">
+  <div class="container mx-auto max-w-6xl text-center mb-12">
+    <h2 class="text-4xl font-bold mb-4"><span class="text-white">Code</span> <span class="text-cyan-400">Examples</span></h2>
+    <p class="text-gray-400 max-w-2xl mx-auto">Clean syntax with compiled performance.</p>
+  </div>
+  <div class="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="code-block">
+<pre class="code-font text-gray-300"><code>print("hello world!")</code></pre>
     </div>
-</section>
-
-<!-- Code Examples -->
-<section class="container mx-auto px-6 py-12">
-    <h2 class="text-3xl font-bold text-green-400 text-center">Hello World & Examples</h2>
-    
-    <div class="mt-6">
-        <h3 class="text-xl font-semibold text-green-300">Hello World</h3>
-        <pre class="bg-gray-900 p-4 rounded overflow-x-auto mt-2"><code>print("hello world!")</code></pre>
-    </div>
-    
-    <div class="mt-6">
-        <h3 class="text-xl font-semibold text-green-300">Functions & Loops</h3>
-        <pre class="bg-gray-900 p-4 rounded overflow-x-auto mt-2"><code>func int fib(int n){
+    <div class="code-block">
+<pre class="code-font text-gray-300"><code>func int fib(int n){
     if(n <= 1){
         return n
-    }else{
+    } else {
         return fib(n-1) + fib(n-2)
     }
 }
-
-print(String(fib(10)))
-
-func void count(){
-    for(var i=0; i<10;i++){
-        print("numero atual:" + String(i))
-        print("\n")
-    }
-}
-count()</code></pre>
+print(String(fib(10)))</code></pre>
     </div>
+  </div>
+</section>
+
+<!-- Download Section -->
+<section id="download" class="py-20 px-4 md:px-8 bg-gray-900/50 text-center">
+  <h2 class="text-4xl font-bold mb-6"><span class="text-white">Download</span> <span class="text-cyan-400">SLang</span></h2>
+  <p class="text-gray-300 mb-6">Get started with SLang today. Available for Windows, macOS, and Linux.</p>
+  <div class="flex flex-col sm:flex-row justify-center gap-4">
+    <a href="#" class="px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg">Windows</a>
+    <a href="#" class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-lg">macOS</a>
+    <a href="#" class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-lg">Linux</a>
+  </div>
 </section>
 
 <!-- Footer -->
-<footer class="bg-gray-800 py-8 mt-12 text-center text-gray-400">
-    <p>Everything above is considered basic in SLang.</p>
-    <p class="mt-2">© 2026 SLang. All rights reserved.</p>
+<footer class="py-8 px-4 md:px-8 border-t border-gray-900 text-center">
+  <p class="text-gray-500 text-sm">© 2026 SLang. Minimal and hacker-designed. | <a href="#" class="text-cyan-400">GitHub</a></p>
 </footer>
+
+<!-- Mobile Menu Script -->
+<script>
+document.getElementById('mobile-menu-button').addEventListener('click', () => {
+  document.getElementById('mobile-menu').classList.toggle('hidden');
+});
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (target) window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+    document.getElementById('mobile-menu').classList.add('hidden');
+  });
+});
+</script>
 
 </body>
 </html>
