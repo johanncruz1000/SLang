@@ -5,103 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLang – Compiled Programming Language</title>
     <meta name="description" content="SLang is a compiled programming language combining clean syntax, high predictability, and native C++ performance.">
-    <style>
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #0d0d0d;
-            color: #f5f5f5;
-            line-height: 1.6;
-            padding: 2rem;
-        }
-        h1, h2 {
-            color: #00ffcc;
-        }
-        code, pre {
-            background-color: #1a1a1a;
-            padding: 0.5rem;
-            border-radius: 4px;
-            display: block;
-            white-space: pre-wrap;
-            overflow-x: auto;
-        }
-        a {
-            color: #00ffcc;
-        }
-        hr {
-            border: 0;
-            border-top: 1px solid #333;
-            margin: 2rem 0;
-        }
-        .section {
-            margin-bottom: 2rem;
-        }
-    </style>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-900 text-gray-100 font-mono leading-relaxed">
 
-<h1>SLang – Compiled Programming Language</h1>
+<!-- Header -->
+<header class="bg-gray-800 shadow-md py-6">
+    <div class="container mx-auto px-6 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-green-400">SLang</h1>
+        <p class="mt-2 text-lg md:text-xl text-gray-300">Compiled Programming Language with Native C++ Power</p>
+    </div>
+</header>
 
-<div class="section">
-<p>SLang is a <strong>compiled programming language</strong> designed to combine 
-<strong>clean syntax</strong>, <strong>high predictability</strong>, and <strong>native C++ performance</strong> 
-— without <strong>boilerplate</strong>.</p>
+<!-- Hero / Introduction -->
+<section class="container mx-auto px-6 py-12 text-center">
+    <p class="text-lg md:text-xl max-w-3xl mx-auto">
+        SLang is a <strong>compiled programming language</strong> designed to combine 
+        <strong>clean syntax</strong>, <strong>high predictability</strong>, and <strong>native C++ performance</strong> — without <strong>boilerplate</strong>.
+    </p>
+    <ul class="mt-6 flex flex-col md:flex-row justify-center gap-8 text-gray-300">
+        <li>No <code>int main()</code></li>
+        <li>Optional semicolons</li>
+        <li>No wrappers</li>
+    </ul>
+</section>
 
-<ul>
-    <li>No <code>int main()</code></li>
-    <li>Optional semicolons</li>
-    <li>No wrappers</li>
-</ul>
-</div>
+<!-- Why SLang -->
+<section class="bg-gray-800 py-12">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold text-green-400">Why SLang?</h2>
+        <p class="mt-4 max-w-2xl mx-auto text-gray-300">Most languages force you to choose:</p>
+        <ul class="mt-4 text-gray-300 list-disc list-inside space-y-2 max-w-md mx-auto">
+            <li>simplicity <strong>or</strong> performance</li>
+            <li>scripting <strong>or</strong> system-level power</li>
+            <li>safety <strong>or</strong> control</li>
+        </ul>
+        <p class="mt-4 text-gray-300 font-semibold">SLang refuses that trade-off.</p>
+    </div>
+</section>
 
-<hr>
+<!-- Basic Features -->
+<section class="container mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold text-green-400 text-center">Basic Features</h2>
+    <ul class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-300 max-w-4xl mx-auto">
+        <li class="border border-gray-700 rounded p-4 hover:bg-gray-700 transition">Compiled language</li>
+        <li class="border border-gray-700 rounded p-4 hover:bg-gray-700 transition">Native C++ code injection</li>
+        <li class="border border-gray-700 rounded p-4 hover:bg-gray-700 transition">Predictable behavior (explicit types & blocks)</li>
+        <li class="border border-gray-700 rounded p-4 hover:bg-gray-700 transition">No <code>int main()</code> required</li>
+        <li class="border border-gray-700 rounded p-4 hover:bg-gray-700 transition">Optional semicolons</li>
+        <li class="border border-gray-700 rounded p-4 hover:bg-gray-700 transition">Import system</li>
+        <li class="border border-gray-700 rounded p-4 hover:bg-gray-700 transition">Script-like syntax with system-level power</li>
+    </ul>
+</section>
 
-<div class="section">
-<h2>Why SLang?</h2>
-<p>Most languages force you to choose:</p>
-<ul>
-    <li>simplicity <strong>or</strong> performance</li>
-    <li>scripting <strong>or</strong> system-level power</li>
-    <li>safety <strong>or</strong> control</li>
-</ul>
-<p>SLang refuses that trade-off.</p>
-</div>
+<!-- Philosophy -->
+<section class="bg-gray-800 py-12">
+    <div class="container mx-auto px-6 max-w-3xl text-center">
+        <h2 class="text-3xl font-bold text-green-400">Philosophy</h2>
+        <p class="mt-4 text-gray-300">SLang <strong>trusts the programmer</strong>.</p>
+        <p class="mt-2 text-gray-300">It does not try to protect you from yourself. It gives you full control — and expects you to know what you're doing.</p>
+        <p class="mt-2 text-gray-300 font-semibold">If you want safety rails, this language is not for you.</p>
+    </div>
+</section>
 
-<hr>
-
-<div class="section">
-<h2>Basic Features</h2>
-<ul>
-    <li>Compiled language</li>
-    <li>Native C++ code injection (anytime, anywhere)</li>
-    <li>Predictable behavior (explicit types, explicit blocks)</li>
-    <li>No <code>int main()</code> required</li>
-    <li>Optional semicolons</li>
-    <li>Import system</li>
-    <li>Script-like syntax with system-level power</li>
-</ul>
-</div>
-
-<hr>
-
-<div class="section">
-<h2>Philosophy</h2>
-<p>SLang <strong>trusts the programmer</strong>.</p>
-<p>It does not try to protect you from yourself. It gives you full control — and expects you to know what you're doing.</p>
-<p>If you want safety rails, this language is not for you.</p>
-</div>
-
-<hr>
-
-<div class="section">
-<h2>Hello World</h2>
-<pre><code>print("hello world!")</code></pre>
-</div>
-
-<hr>
-
-<div class="section">
-<h2>Functions & Loops</h2>
-<pre><code>func int fib(int n){
+<!-- Code Examples -->
+<section class="container mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold text-green-400 text-center">Hello World & Examples</h2>
+    
+    <div class="mt-6">
+        <h3 class="text-xl font-semibold text-green-300">Hello World</h3>
+        <pre class="bg-gray-900 p-4 rounded overflow-x-auto mt-2"><code>print("hello world!")</code></pre>
+    </div>
+    
+    <div class="mt-6">
+        <h3 class="text-xl font-semibold text-green-300">Functions & Loops</h3>
+        <pre class="bg-gray-900 p-4 rounded overflow-x-auto mt-2"><code>func int fib(int n){
     if(n <= 1){
         return n
     }else{
@@ -117,15 +96,15 @@ func void count(){
         print("\n")
     }
 }
-count()
-</code></pre>
-</div>
+count()</code></pre>
+    </div>
+</section>
 
-<hr>
-
-<div class="section">
-<p>Everything above is considered basic in SLang.</p>
-</div>
+<!-- Footer -->
+<footer class="bg-gray-800 py-8 mt-12 text-center text-gray-400">
+    <p>Everything above is considered basic in SLang.</p>
+    <p class="mt-2">© 2026 SLang. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
