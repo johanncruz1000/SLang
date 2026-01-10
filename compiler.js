@@ -11,7 +11,7 @@ code=code.replace(`import ${start}${name}.${ext}${end}`,``)
 if(ext=="sl"){
 code=fs.readFileSync(name+"."+ext,'utf-8')+code;
 }else{
-code=`import ${start}${name}${ext}${end}\n${code}`
+code=`#include ${start}${name}${ext}${end}\n${code}`
 }
 })
 code=`std::string input(){std::string a; std::getline(std::cin,a); return a;} int Int(std::string a){return std::stoi(a);} \nint main(){ \n${code}\nreturn 0;\n}`
