@@ -6,9 +6,18 @@ const fs=require("fs");
 const path=require("path");
 var code=fs.readFileSync(args[2],'utf-8')
 var setup=fs.readFileSync(path.join(__dirname,"setup.cpp"),'utf8')
-code=`void print(std::string a){std::cout << a;} std::string input(){std::string a; std::getline(std::cin,a); return a;} int Int(std::string a){return std::stoi(a);} \nint main(){ \n${code}\nreturn 0;\n}`
+code.replace(/import\s*(<|")(.*?)\.(.*?)(>|")/g,(match,start,name,ext,end)=>{
+code=code.replace(`import ${start}${name}.${ext}${end}`,``)
+if(ext=="sl"){
+code=fs.readFileSync(name+"."+ext,'utf-8')+code;
+}else{
+code=`import ${start}${name}${ext}${end}\n${code}`
+}
+})
+code=`std::string input(){std::string a; std::getline(std::cin,a); return a;} int Int(std::string a){return std::stoi(a);} \nint main(){ \n${code}\nreturn 0;\n}`
 code=setup+code;
 code=code.split("\n").join(";\n").replace(/;;/g,";").replace(/  /g,"").replace(/};/g,"}").replace(/{;/g,"{").replace(/{ ;/g,"{").replace(/\n;/g,"\n").replace(/>;/g,">")
+
 code = code.replace(/(for|if|while|else\s+if|else)\s*(?:\((.*?)\))?\s*\{(.*?)\}/gs, 
     (match, tipo, condicao, conteudo) => {
         if (tipo === "else") {
