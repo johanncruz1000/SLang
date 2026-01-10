@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S – Compiled Programming Language</title>
+    <title>SLang – Compiled Programming Language</title>
     <meta name="description" content="SLang is a compiled programming language with clean syntax, C++ integration, and script-like syntax. Get native C++ performance with predictable behavior.">
 
     <!-- Tailwind CSS -->
@@ -21,7 +21,7 @@
         body { font-family: 'Inter', sans-serif; }
         .code-font { font-family: 'Fira Code', monospace; }
         .nav-blur { backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.85); }
-        .code-block { background: linear-gradient(135deg, #0a0a0a 0%, #111 100%); border-left: 4px solid #00ffff; }
+        .code-block { background: linear-gradient(135deg, #0a0a0a 0%, #111 100%); border-left: 4px solid #00ffff; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
         .hero-gradient { background: radial-gradient(circle at 50% 0%, rgba(0, 200, 255, 0.1) 0%, rgba(0, 0, 0, 0) 50%); }
         .glow { box-shadow: 0 0 20px rgba(0, 255, 255, 0.1); }
         .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent); }
@@ -66,7 +66,7 @@
             Clean syntax. Native C++ performance. Predictable behavior.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="#examples" class="px-8 py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg glow transition-colors">Get Started</a>
+            <a href="#examples" class="px-8 py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg glow transition-colors">See Examples</a>
             <a href="#download" class="px-8 py-3 border border-cyan-600 text-cyan-400 hover:bg-cyan-900/30 font-semibold rounded-lg transition-colors">Download SLang</a>
         </div>
     </section>
@@ -98,13 +98,59 @@
         </div>
     </section>
 
+    <!-- Examples Section -->
+    <section id="examples" class="py-20 px-4 md:px-8 text-center bg-gray-900/30">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8"><span class="text-white">Code Examples</span></h2>
+
+        <div class="max-w-4xl mx-auto space-y-8">
+            <div class="text-left code-block code-font">
+<pre><code>// Hello World in SLang
+func main() {
+    println("Hello, SLang!");
+}
+</code></pre>
+            </div>
+
+            <div class="text-left code-block code-font">
+<pre><code>// Variables and Types
+func main() {
+    let x: int = 10;
+    let y: float = 3.14;
+    println("Sum:", x + y);
+}
+</code></pre>
+            </div>
+
+            <div class="text-left code-block code-font">
+<pre><code>// Loops
+func main() {
+    for i in 1..5 {
+        println("Iteration:", i);
+    }
+}
+</code></pre>
+            </div>
+
+            <div class="text-left code-block code-font">
+<pre><code>// Calling C++ code
+extern cpp func add(a: int, b: int) -> int;
+
+func main() {
+    let result = add(5, 7);
+    println("C++ Add Result:", result);
+}
+</code></pre>
+            </div>
+        </div>
+    </section>
+
     <!-- Download Section -->
     <section id="download" class="py-20 px-4 md:px-8 bg-gradient-to-b from-black to-gray-900 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-8"><span class="text-white">Download SLang</span></h2>
         <div class="space-y-4 max-w-md mx-auto">
-            <a href="https://github.com/johanncruz1000/SLang" class="block py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition-colors">Download for Windows</a>
-            <a href="https://github.com/johanncruz1000/SLang" class="block py-3 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-lg transition-colors">Download for macOS</a>
-            <a href="https://github.com/johanncruz1000/SLang" class="block py-3 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-lg transition-colors">Download for Linux</a>
+            <a href="https://github.com/johanncruz1000/SLang" target="_blank" class="block py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition-colors">Download for Windows</a>
+            <a href="https://github.com/johanncruz1000/SLang" target="_blank" class="block py-3 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-lg transition-colors">Download for macOS</a>
+            <a href="https://github.com/johanncruz1000/SLang" target="_blank" class="block py-3 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-lg transition-colors">Download for Linux</a>
         </div>
     </section>
 
