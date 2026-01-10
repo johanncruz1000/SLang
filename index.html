@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SLang – Compiled Programming Language</title>
+    <title>S – Compiled Programming Language</title>
     <meta name="description" content="SLang is a compiled programming language with clean syntax, C++ integration, and script-like syntax. Get native C++ performance with predictable behavior.">
 
     <!-- Tailwind CSS -->
@@ -113,32 +113,24 @@ func main() {
 
             <div class="text-left code-block code-font">
 <pre><code>// Variables and Types
-func main() {
-    let x: int = 10;
-    let y: float = 3.14;
-    println("Sum:", x + y);
-}
+
+    double x = 10
+    double y = 3.14
+    double z = x+y
+    print("Sum:" + String(z))
+
 </code></pre>
             </div>
 
             <div class="text-left code-block code-font">
 <pre><code>// Loops
-func main() {
-    for i in 1..5 {
-        println("Iteration:", i);
-    }
+func void count(){
+for(var i=0; i<10;i++){
+    print("numero atual:" + String(i))
+    print("\n")
+  }
 }
-</code></pre>
-            </div>
-
-            <div class="text-left code-block code-font">
-<pre><code>// Calling C++ code
-extern cpp func add(a: int, b: int) -> int;
-
-func main() {
-    let result = add(5, 7);
-    println("C++ Add Result:", result);
-}
+count()
 </code></pre>
             </div>
         </div>
@@ -156,7 +148,7 @@ func main() {
 
     <!-- Footer -->
     <footer class="py-10 px-4 md:px-8 border-t border-gray-900 text-center">
-        <p class="text-gray-500 mb-4">© 2026 SLang. Minimal and hacker-designed.</p>
+        <p class="text-gray-500 mb-4">© 2026 SLang.</p>
         <div class="flex justify-center space-x-6 mb-4">
             <a href="https://github.com/johanncruz1000/SLang" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors">GitHub</a>
         </div>
