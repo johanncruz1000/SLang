@@ -1,13 +1,20 @@
 #!/bin/bash
 USERPATH="$PWD"
-echo "compiling..."
-if [ -z "$1" ]; then
-echo "ERROR : input file missing!"
-echo "writing example:  slang inputfile.sl outputfile"
-exit 1
-elif [ -z "$2" ]; then
-echo "Warning: Output file missing, your output file will be named 'output'."
-OUTPUTFILE="output"
-else
-node "$PREFIX/slang/compiler.js" "$USERPATH/$1" "$USERPATH/$2" "$3"
+if [ "$1" == "build" ]; then
+ if [ -z "$2" ]; then
+ echo "ERROR : input file missing!"
+ echo "writing example:  slang inputfile.sl outputfile"
+ exit 1
+ else
+ echo "compiling..."
+ node "$(cd "$(dirname "$0")" && pwd)/std/compiler.js" "$USERPATH/$2" "$USERPATH/$3" "$4"
+ fi
+elif [ "$1" == "run" ]; then
+ echo "compiling..."
+ node "$(cd "$(dirname "$0")" && pwd)/std/compiler.js" "$USERPATH/$2" "$USERPATH/$3" "$4"
+ ./"$3"
+elif [ "$1" == "install" ]; then
+ cd "$PREFIX/slang/libs"
+ git clone "$2"
+ cd "$USERPATH"
 fi
