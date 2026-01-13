@@ -15,7 +15,7 @@ code=fs.readFileSync(name+"."+ext,'utf-8')+code;
 code=`#include ${start}${name}${ext}${end}\n${code}`
 }
 })
-code=`std::string input(){std::string a; std::getline(std::cin,a); return a;} int Int(std::string a){return std::stoi(a);} \nint main(){ \n${code}\nreturn 0;\n}`
+code=`//#include "${__dirname}/var.cpp"\nstd::string input(){std::string a; std::getline(std::cin,a); return a;} int Int(std::string a){return std::stoi(a);} \nint main(){ \n${code}\nreturn 0;\n}`
 code=code.split("\n").join(";\n").replace(/;;/g,";").replace(/  /g,"").replace(/(for|if|while|else\s+if|else)\s*(.*?)};/g,"$1 $2 }").replace(/{;/g,"{").replace(/{ ;/g,"{").replace(/\n;/g,"\n").replace(/#include\s+<(.*?)>;/g,"#include <$1>").replace(/template(.*?)>;/g,"template $1>").replace(/:;/g,":")
 code = code.replace(/(for|if|while|else\s+if|else)\s*(?:\((.*?)\))?\s*\{(.*?)\}/gs, 
     (match, tipo, condicao, conteudo) => {
@@ -48,7 +48,7 @@ detect(code)
 code=setup+code;
 console.log(variaveis)
 exec(`cat > ${args[2].replace(".sl",".cpp")} << 'EOF'\n${code}\nEOF`)
-/*execAsync(`clang++ ${args[2].replace(".sl",".cpp")} -O0 -o ${args[3]}`).then(()=>{
+execAsync(`clang++ ${args[2].replace(".sl",".cpp")} -O0 -o ${args[3]}`).then(()=>{
 if(args[4]=="-emit-cpp"){
 }else{
 exec(`rm ${args[2].replace(".sl",".cpp")}`)

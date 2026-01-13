@@ -38,11 +38,25 @@ if(std::holds_alternative<int>(value)){
 int& val=std::get<int>(value);
 val+=1;
  }
+
 return *this;
 }
 var operator++(int){
 var temp = *this;
 ++(*this);
+return temp;
+}
+var& operator--(){
+if(std::holds_alternative<int>(value)){
+int& val=std::get<int>(value);
+val-=1;
+ }
+
+return *this;
+}
+var operator--(int){
+var temp = *this;
+--(*this);
 return temp;
 }
 var operator+=(int valor){
@@ -52,6 +66,14 @@ val+=valor;
   }
 return *this;
  }
+var operator-=(int valor){
+if(std::holds_alternative<int>(value)){
+int& val=std::get<int>(value);
+val-=valor;
+  }
+return *this;
+}
+
 };
 template<typename... Args>
 void print(Args&&... args){
