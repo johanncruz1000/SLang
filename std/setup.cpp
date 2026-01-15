@@ -6,10 +6,18 @@
 #include <filesystem>
 #include <regex>
 #include <cstdlib>
+#include <sstream>
 
-void print(std::string a){
+template<typename... Args>
+void print(Args&&... args){
+std::ostringstream value;
+value << std::boolalpha;
+(value << ... << std::forward<Args>(args));
+std::string a = value.str();
 std::cout << a << std::endl;
 }
 template<typename T>std::string String(T a){
-return std::to_string(a);
+std::ostringstream value;
+value << a;
+return value.str();
 }
