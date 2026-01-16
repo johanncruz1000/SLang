@@ -7,7 +7,7 @@ const path=require("path");
 var code=fs.readFileSync(args[2],'utf-8')
 var setup=fs.readFileSync(path.join(__dirname,"setup.cpp"),'utf8')
 var variaveis=[];
-
+//--------------------------------CONDITIONS-----AND----INIT-----------------
 code=`//#include "${__dirname}/var.cpp"\nstd::string input(){std::string a; std::getline(std::cin,a); return a;} int Int(std::string a){return std::stoi(a);} \nint main(){ \n${code}\nreturn 0;\n}`
 code=code.split("\n").join(";\n").replace(/;;/g,";").replace(/  /g,"").replace(/(for|if|while|else\s+if|else)\s*(.*?)};/g,"$1 $2 }").replace(/{;/g,"{").replace(/{ ;/g,"{").replace(/\n;/g,"\n").replace(/#include\s+<(.*?)>;/g,"#include <$1>").replace(/template(.*?)>;/g,"template $1>").replace(/:;/g,":")
 code = code.replace(/(for|if|while|else\s+if|else)\s*(?:\((.*?)\))?\s*\{(.*?)\}/gs, 
@@ -19,6 +19,8 @@ code = code.replace(/(for|if|while|else\s+if|else)\s*(?:\((.*?)\))?\s*\{(.*?)\}/
         }
     }
 );
+
+//------------------------------------IMPORTS-------------------------------------------
 code.replace(/import\s*(<|")(.*?)(>|")/g,(match,start,name,end)=>{
 code=code.replace(`import ${start}${name}${end}`,``)
 if(name.includes(".sl")){
@@ -27,6 +29,9 @@ code=fs.readFileSync(name,'utf-8')+code;
 code=`#include ${start}${name}${end}\n${code}`
 }
 })
+
+//------------------------------------FUNCTIONS-----------------------------------------
+code=code.replace(/(?<![func])(.*?)={(.*?)}/g,"$1=OPENING_BRACE $2 CLOSING_BRACE") //PARA ARRAYS E VETORES
 code=code.replace(/int\s+main\((.*?)\){(.*?)func\s+(.*?)\s+((.*?))\((.*?)\)\{(.*?)\}(.*?)\}/gs,"$3 $4($6){$7} int main($1){$2 $8}");
 code=code.replace(/CLOSING_BRACE/g,"}")
 code=code.replace(/OPENING_BRACE/g,"{")
